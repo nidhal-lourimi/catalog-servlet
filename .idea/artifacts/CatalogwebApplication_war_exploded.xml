@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" build-on-make="true" name="CatalogwebApplication:war exploded">
+  <artifact type="exploded-war" name="CatalogwebApplication:war exploded">
     <output-path>$PROJECT_DIR$/target/CatalogwebApplication</output-path>
     <properties id="maven-jee-properties">
       <options>

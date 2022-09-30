@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebFilter("/catalog-servlet")
+@WebFilter(urlPatterns = "/catalog-servlet",asyncSupported = true)
 public class ParameterLoggingFilter implements Filter {
     public void init(FilterConfig config) throws ServletException {
     }

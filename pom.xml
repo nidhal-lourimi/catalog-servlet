@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.nidhallourimi</groupId>
-    <artifactId>employeewebApplication</artifactId>
+    <artifactId>CatalogwebApplication</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>employeewebApplication</name>
+    <name>CatalogwebApplication</name>
     <packaging>war</packaging>
 
     <properties>

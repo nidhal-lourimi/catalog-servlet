@@ -1,10 +1,10 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="employeewebApplication:war exploded">
-    <output-path>$PROJECT_DIR$/target/employeewebApplication-1.0-SNAPSHOT</output-path>
+  <artifact type="exploded-war" build-on-make="true" name="CatalogwebApplication:war exploded">
+    <output-path>$PROJECT_DIR$/target/CatalogwebApplication</output-path>
     <properties id="maven-jee-properties">
       <options>
         <exploded>true</exploded>
-        <module>employeewebApplication</module>
+        <module>CatalogwebApplication</module>
         <packaging>war</packaging>
       </options>
     </properties>
@@ -35,9 +35,9 @@
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/target/employeewebApplication-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/target/CatalogwebApplication-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="employeewebApplication/web/Web" />
+      <element id="javaee-facet-resources" facet="CatalogwebApplication/web/Web" />
     </root>
   </artifact>
 </component>

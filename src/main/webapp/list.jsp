@@ -54,6 +54,13 @@
     </tr>
     <tr>
         <td width="100%" colspan="2">
+            ${pageContext.request.contextPath}
+                <!--/CatalogwebApplication -->
+            ${param.name}
+                <!--protien input name-->
+            ${cookie.someCookie.value}
+                <!--SomeCookieValue-->
+            <h3>Item Count: ${items.size() * 2}</h3>
             <table width="100%"  align="left"
                    cellpadding="0" cellspacing="0" border="0">
                 <tbody>

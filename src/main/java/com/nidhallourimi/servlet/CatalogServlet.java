@@ -10,12 +10,14 @@ import java.io.PrintWriter;
 public class CatalogServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    response.getWriter().append(request.getParameter("name"));
+        response.getWriter().append(request.getParameter("name"));
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       AsyncContext asyncContext = request.startAsync();
+        returnResponse(request, response);
+        /** asyc code*/
+        /*       AsyncContext asyncContext = request.startAsync();
        asyncContext.start(new Runnable() {
            @Override
            public void run() {
@@ -33,18 +35,26 @@ public class CatalogServlet extends HttpServlet {
            }
        });
 
-        System.out.println("Initial request by: "+Thread.currentThread().getName());
+        System.out.println("Initial request by: "+Thread.currentThread().getName());*/
 
     }
 
-    private static void returnResponse(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String name= request.getParameter("name");
-        String manufacture= request.getParameter("manufacture");
-        String sku= request.getParameter("sku");
-        Catalog.addItem(new CatalogItem( name,manufacture,sku));
-        response.setHeader("someHeaders","someHeaderValue");
-        response.addCookie(new Cookie("someCookie","SomeCookieValue" ));
-        PrintWriter out = response.getWriter();
+    private static void returnResponse(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        String name = request.getParameter("name");
+        String manufacture = request.getParameter("manufacture");
+        String sku = request.getParameter("sku");
+
+        response.setHeader("someHeaders", "someHeaderValue");
+        response.addCookie(new Cookie("someCookie", "SomeCookieValue"));
+
+        Catalog.addItem(new CatalogItem(name, manufacture, sku));
+
+        request.setAttribute("message", name);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("list.jsp");
+        dispatcher.forward(request, response);
+
+        /** creating html with hard code java*/
+/*        PrintWriter out = response.getWriter();
         out.println("<html>");
         out.println("<head></head>");
         out.println("<body>");
@@ -59,7 +69,8 @@ public class CatalogServlet extends HttpServlet {
         out.println("</table>");
         out.println("</body>");
         out.println("</html>");
-    }
+    }*/
 
+    }
 }
 

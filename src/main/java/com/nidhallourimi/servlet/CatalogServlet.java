@@ -41,15 +41,17 @@ public class CatalogServlet extends HttpServlet {
 
     private static void returnResponse(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String name = request.getParameter("name");
-        String manufacture = request.getParameter("manufacture");
+        String manufacturer = request.getParameter("manufacturer");
         String sku = request.getParameter("sku");
 
         response.setHeader("someHeaders", "someHeaderValue");
         response.addCookie(new Cookie("someCookie", "SomeCookieValue"));
 
-        Catalog.addItem(new CatalogItem(name, manufacture, sku));
-
-        request.setAttribute("message", name);
+        Catalog.addItem(new CatalogItem(name, manufacturer, sku));
+        /** we can use jstl to iterate  throw that list*/
+        request.setAttribute("items",Catalog.getItems());
+        /**jsp*/
+        /*request.setAttribute("message", name);*/
         RequestDispatcher dispatcher = request.getRequestDispatcher("list.jsp");
         dispatcher.forward(request, response);
 
